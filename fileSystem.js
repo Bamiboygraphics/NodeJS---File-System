@@ -3,6 +3,17 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const port = 5000;
 
+if (!fs.existsSync('./result')) {
+  fs.mkdir('./result', (err) => {
+    if (err){
+      console.log(err)
+    }
+  }) 
+  console.log('Folder created')
+} else{
+  console.log('File already Exist')
+}
+
 
 const server = http.createServer(function (req, res) {
     res.writeHead(200, { 'contentType': 'text/json' });
